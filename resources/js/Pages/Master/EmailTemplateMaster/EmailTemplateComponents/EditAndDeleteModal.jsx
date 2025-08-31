@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { FiUser, FiX, FiSave, FiTrash2, FiXCircle } from "react-icons/fi"; // Importing icons
+import { FiUser, FiX, FiSave, FiTrash2, FiXCircle } from "react-icons/fi";
+import { MdOutgoingMail } from "react-icons/md";
 import { toast } from "react-toastify";
 
 import InputLabel from '@/Components/Input/InputLabel';
@@ -11,12 +12,14 @@ import InputError from '@/Components/Input/InputError';
 import DefaultUpdateConfirmModal from "@/Components/Modal/DefaultUpdateConfirmModal";
 import DefaultDeleteConfirmModal from "@/Components/Modal/DefaultDeleteConfirmModal";
 import { getValue, validateData, toCamelCase } from "@/CommonJsFunction/CommonJsFunction";
+import PreviewEmailModal from "./PreviewEmailModal";
 
 export default function EditAndDeleteModal({ show, data, onClose, onDelete, onUpdate, rules }) {
 
     const [formData, setFormData] = useState({ ...data });
     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
     const [showUpdateConfirm, setShowUpdateConfirm] = useState(false);
+    const [showPreview, setShowPreview] = useState(false);
     const [processing, setProcessing] = useState(false);
     const [errors, setErrors] = useState({});
 
@@ -217,6 +220,17 @@ export default function EditAndDeleteModal({ show, data, onClose, onDelete, onUp
                     <div className="mt-4 flex justify-end space-x-2">
                         <button
                             className={`px-4 py-2 rounded flex items-center space-x-2 border ${processing
+                                ? "text-gray-500 bg-yellow-300 border-yellow-400 opacity-50 cursor-not-allowed"
+                                : "text-gray-900 bg-yellow-300 border-yellow-400 hover:bg-yellow-600 hover:text-white"
+                                }`}
+                            onClick={() => setShowPreview(true)}
+                            disabled={processing}
+                        >
+                            <MdOutgoingMail />
+                            <span>Preview</span>
+                        </button>
+                        <button
+                            className={`px-4 py-2 rounded flex items-center space-x-2 border ${processing
                                 ? "text-gray-500 bg-blue-300 border-blue-400 opacity-50 cursor-not-allowed"
                                 : "text-gray-900 bg-blue-300 border-blue-400 hover:bg-blue-600 hover:text-white"
                                 }`}
@@ -269,6 +283,12 @@ export default function EditAndDeleteModal({ show, data, onClose, onDelete, onUp
                 processing={processing}
                 handleUpdate={handleUpdate}
                 onClose={() => setShowUpdateConfirm(false)}
+            />
+
+            <PreviewEmailModal 
+                show={showPreview}
+                onClose={() => setShowPreview(false)}
+                data={formData} 
             />
 
         </>
