@@ -1,0 +1,20 @@
+- intallation
+    node version: v22.16.0
+    php version: php-8.1.10-Win32-vs16-x64
+    composer version: version 2.4.1
+    laravel version: v10.48.29
+
+- authentication
+    run: composer require laravel/breeze --dev
+    run: php artisan breeze:install react
+    run: npm run dev
+    
+- frontend/views
+    run: npm install react-icons
+    run: npm install react-toastify // error message design
+    run: npm install framer-motion // animation
+    run: npm install ziggy-js // route helper: to fetch route via route name
+    
+- database
+    php artisan make:migration create_mtr_email_template_tbl --table="mtr_email_template"
+    php artisan make:model MtrEmailTemplate

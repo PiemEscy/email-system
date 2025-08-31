@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Set global font */
+* {
+ /* font-family: 'Consolas'; */
+}
+
+body {
+    margin: 0;
+    height: 100%;
+}
+
+.modal-backdrop {
+    pointer-events: auto; /* Allows click events on the backdrop */
+}
+
+/* Custom Scrollbar for Sidebar */
+.sidebar-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #4A5568; /* Dark gray for the scrollbar thumb */
+    border-radius: 4px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-track {
+    background-color: #2D3748; /* Darker gray for the track */
+}
+
+/* Custom Scrollbar for Main Content */
+.main-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.main-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #4A5568;
+    border-radius: 4px;
+}
+
+.main-scrollbar::-webkit-scrollbar-track {
+    background-color: #E2E8F0; /* Light gray for the track */
+}
+
+html {
+    scroll-behavior: smooth;
+}
