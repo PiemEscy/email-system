@@ -34,7 +34,6 @@ export default function CreateModal({ show, onClose, onCreate, rules }) {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        setErrors({});
     };
 
     const handleCreate = async () => {

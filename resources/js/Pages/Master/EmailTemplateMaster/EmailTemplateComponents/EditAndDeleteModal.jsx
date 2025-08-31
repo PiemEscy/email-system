@@ -30,7 +30,6 @@ export default function EditAndDeleteModal({ show, data, onClose, onDelete, onUp
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
-        setErrors({});
     };
 
     const handleDelete = async () => {
@@ -64,7 +63,7 @@ export default function EditAndDeleteModal({ show, data, onClose, onDelete, onUp
     const handleUpdate = async () => {
         setProcessing(true);
         const errors = validateData(formData, rules);
-        console.log(formData);
+        console.log(errors);
         
         setErrors(errors);
 

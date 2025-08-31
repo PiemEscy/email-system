@@ -64,13 +64,19 @@ class EmailTemplateMasterController extends Controller
     public function store(EmailTemplateMasterRequest $request)
     {
         $data = $request->validated();
-
-        // Convert CC array to a comma-separated string
-        if (isset($data['cc']) && is_array($data['cc'])) {
-            $data['cc'] = implode(',', $data['cc']);
-        }
-
         return response()->json($this->repository->create($data), 201);
+    }
+
+    public function update(EmailTemplateMasterRequest $request, $id)
+    {
+        $data = $request->validated();
+        return response()->json($this->repository->update($id, $data), 201);
+    }
+
+    public function delete($id)
+    {
+        $this->repository->delete($id);
+        return response()->json(['message' => 'Deleted successfully'], 200);
     }
 }
 

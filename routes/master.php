@@ -9,6 +9,8 @@ Route::middleware(['auth'])->prefix('master')->name('master.')->group(function (
         Route::get('/', [EmailTemplateMasterController::class, 'index'])->name('index');
         Route::post('/filter-data', [EmailTemplateMasterController::class, 'filterData'])->name('filter.data');
         Route::post('/create-data', [EmailTemplateMasterController::class, 'store'])->name('store.data');
+        Route::patch('/update-data/{id}', [EmailTemplateMasterController::class, 'update'])->name('update.data');
+        Route::delete('/email-template/{id}', [EmailTemplateMasterController::class, 'delete'])->name('delete.data');
     });
 
 });

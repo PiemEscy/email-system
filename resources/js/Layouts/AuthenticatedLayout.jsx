@@ -39,11 +39,11 @@ export default function Authenticated({ user, windowLogo, header, headerDescript
     return (
         <div className="flex h-screen bg-gray-100" {...props}>
             {/* Sidebar */}
-            <div className={`sidebar ${showingSidebar ? 'z-20' : 'z-10'} fixed top-0 left-0 h-full bg-gray-900 text-white shadow-lg flex flex-col transition-all duration-300 ${showingSidebar ? 'w-80' : 'hidden'} md:w-80 overflow-hidden md:relative`}>
+            <div className={`sidebar ${showingSidebar ? 'z-20' : 'z-10'} fixed top-0 left-0 h-full bg-gray-900 text-white shadow-lg flex flex-col transition-all duration-300 ${showingSidebar ? 'w-64' : 'hidden'} md:w-64 overflow-hidden md:relative`}>
                 {/* Logo */}
                 <div className="flex items-center justify-center py-4 mb-1 bg-gray-900 rounded-r-lg">
                     <Link href="/">
-                        <ApplicationDarkLogo className="w-40 h-40 object-contain border rounded-full" />
+                        <ApplicationDarkLogo className="w-32 h-32 object-contain" />
                     </Link>
                 </div>
 

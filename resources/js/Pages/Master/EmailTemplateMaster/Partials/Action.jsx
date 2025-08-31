@@ -101,7 +101,7 @@ export default function Action({
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                     >
                         <div className="mt-3 p-3 border border-gray-300 bg-gray-50 overflow-hidden">
-                            <h3 className="text-sm font-semibold text-gray-700 mb-2">
+                            <h3 className="text-sm text-gray-700 mb-2">
                                 More Filter Options
                             </h3>
                             <div className="flex flex-col sm:flex-row gap-3">

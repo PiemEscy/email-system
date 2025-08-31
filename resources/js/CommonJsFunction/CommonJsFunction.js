@@ -47,15 +47,15 @@ export const validateData = (data, rules) => {
 
             if (rule === "array" && value) {
 
-                if(field === 'cc'){
-                if (typeof value === "string") {
-                    var newValue = value.split(/[,\s]+/).map(s => s.trim()).filter(Boolean);
-                }else{
-                    var newValue = value;
-                }
+                // if(field === 'cc'){
+                //     if (typeof value === "string") {
+                //         var newValue = value.split(/[,\s]+/).map(s => s.trim()).filter(Boolean);
+                //     }else{
+                //         var newValue = value;
+                //     }
+                // }
 
-                }
-                if (!Array.isArray(newValue)) {
+                if (!Array.isArray(value)) {
                     errors[field] = `${toCamelCase(field)} must be an array`;
                 }
             }
@@ -83,6 +83,8 @@ export const validateData = (data, rules) => {
                         seen.add(item);
                     }
                 });
+                console.log(duplicates);
+                
 
                 // Helper to format with "and"
                 const formatList = (arr) => {
